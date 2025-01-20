@@ -1,0 +1,50 @@
+.countdown-container {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .countdown-item {
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+  }
+  
+  .countdown-item span {
+    display: block;
+    font-size: 2.7rem;
+    margin-bottom: 5px;
+  }
+  
+  .countdown-item p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Agregar separador vertical */
+  .countdown-item::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 10px;
+    height: 50%;
+    width: 1px;
+    background-color: white;
+  }
+  
+  .countdown-item:last-child::after {
+    display: none;
+  }
+  
