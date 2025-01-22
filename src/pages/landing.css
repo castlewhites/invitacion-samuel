@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+
 .main-container {
     position: relative;
     height: 100vh;
@@ -5,6 +8,11 @@
     max-width: 500px;
     margin: 0 auto;
 }
+.main-container h1{
+  font-size: 1.5rem !important;
+}
+
+
 
 /* ONE SECTION */
 
@@ -40,7 +48,7 @@
   color: #0e360e
 }
 .one-section__content h1{
-  font-size: 2rem;
+  font-size: 2rem !important;
   margin-bottom: 35px;
 
 }
@@ -52,7 +60,6 @@
   width: 100%;
   height: 25%;
   background-color: #4E4F3D; 
-
 }
 .two-section::before, .fourth-section::before{
   background: url('../assets/selva.png') no-repeat center center/cover;
@@ -82,7 +89,7 @@
 .three-section__content{
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   position: relative; 
   z-index: 2;
   color: #0e360e;
@@ -92,6 +99,7 @@
   color: #383926;
   font-weight: bold;
   display: flex;
+  font-size: 1rem;
   flex-direction: column;
   gap: 10px;
 }
@@ -165,6 +173,7 @@
   color: #383926;
   font-weight: 300;
   font-size: 0.8rem;
+  resize: none;
 }
 .six-section__content button{
   background-color: #809671;
@@ -185,4 +194,21 @@
   font-size: 14px;          
   color: #809671;              
   border-top: 1px solid #38392689; 
+}
+
+/* Estilo inicial: oculto */
+.fade-in {
+  opacity: 0;
+  transition: opacity 3s ease-out, transform 1s ease-out;
+}
+
+/* Estilo cuando son visibles */
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* GENERALES */
+
+.two-section, .three-section, .fourth-section, .fift-section, .six-section{
+  font-size: 0.8rem;
 }
