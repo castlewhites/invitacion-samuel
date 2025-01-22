@@ -3,7 +3,6 @@
     height: 100vh;
     width: 100%;
     max-width: 500px;
-    
     margin: 0 auto;
 }
 
@@ -20,7 +19,7 @@
   text-align: center;
 }
 .one-section{
-  background: linear-gradient(#809671, white 130%);
+  background: linear-gradient(#809671, #c8ae7e 130%);
 }
 .one-section::before, .two-section::before, .three-section::before, .fourth-section::before{
   content: '';
@@ -52,8 +51,7 @@
 .two-section, .fourth-section, .fift-section{
   width: 100%;
   height: 25%;
-  background-color: #4E4F3D;
- 
+  background-color: #4E4F3D; 
 
 }
 .two-section::before, .fourth-section::before{
@@ -91,7 +89,7 @@
 }
 
 .three-section__names{
-  color: white;
+  color: #383926;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -100,25 +98,32 @@
 
 /* FOURTH SECTION */
 
-.fourth-section__content, .fift-section__content{
+.fourth-section__content, .fift-section__content, .six-section__content{
   z-index: 2;
   position: relative;
-  color: white;
+  color: #c8ae7e;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 .fourth-section__content img, .fift-section__content img{
   margin: 0 auto;
-  width: 50px !important;
+  width: 70px !important;
 }
-.fourth-section__content button, .fift-section__content button{
+.fourth-section__content button, .fift-section__content button, .six-section__content button{
   background-color: #D4CDA1;
   border: none;
   padding: 7px;
   width: 60%;
+  color: #0e360e;
   margin: 0 auto;
   border-radius: 20px;
+}
+.fourth-section__content button{
+  background-color: #809671;
+}
+.fourth-section__content h1, .six-section__content h1 {
+  color: rgba(255, 255, 255, 0.789);
 }
 
 
@@ -133,7 +138,7 @@
   color: #0e360e;
 }
 
-.fift-section__content img, .six-section__content img{
+.fift-section__content img{
   width: 35px !important;
 }
 
@@ -141,4 +146,43 @@
 
 .six-section{
   background-color: #4E4F3D ;
+  height: 35%;
+}
+.six-section__content{
+  color: #e5d2b8;
+  width: 80%;
+}
+
+.six-section__content img{
+  width: 45px;
+  margin: 0 auto;
+}
+.six-section__content textarea{
+  min-height: 50px;
+  border-radius: 20px;
+  background-color: #D4CDA1;
+  padding: 10px 20px;
+  color: #383926;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.six-section__content button{
+  background-color: #809671;
+  width: 120px;
+}
+
+
+
+
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #0e360edd; 
+  text-align: center;       
+  padding: 10px 0;          
+  font-size: 14px;          
+  color: #809671;              
+  border-top: 1px solid #38392689; 
 }

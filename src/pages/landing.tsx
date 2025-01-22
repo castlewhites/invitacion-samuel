@@ -2,6 +2,7 @@ import './landing.css';
 import Countdown from "../components/CountDown/index";
 import Fiesta from "../assets/fiesta.png";
 import Regalo from "../assets/regalo.png";
+import Vela from "../assets/vela.png";
 
 
 
@@ -40,8 +41,10 @@ export default function Landing() {
                 <div className='fourth-section__content'>
                     <img src={Fiesta} alt="" />
                     <h1>FIESTA</h1>
-                    <p>Granada Club Residencial</p>
-                    <p>calle 64j #74b-19</p>
+                    <div>
+                        <p>Granada Club Residencial</p>
+                        <p>calle 64j #74b-19</p>
+                    </div>
                     <button onClick={() => window.open("https://maps.app.goo.gl/c3pMpXmM8MJESemQ9")}>Ver mapa</button>
                 </div>
             </section>
@@ -55,12 +58,16 @@ export default function Landing() {
             </section>
             <section className='six-section'>
                 <div className='six-section__content'>
-                    <img src={Regalo} alt="" />
+                    <img src={Vela} alt="" />
                     <h1>DESEOS Y DONES</h1>
                     <p>Regalame  tus mejores deseos y bendiceme con un don</p>
                     <textarea></textarea>
+                    <button>Enviar</button>
                 </div>
             </section>
+            <footer className='footer'>
+                <p>Creado por MUF</p>
+            </footer>
         </div>
 
     )

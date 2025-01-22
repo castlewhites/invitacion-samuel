@@ -34,7 +34,7 @@ const Countdown: React.FC = () => {
 
     return (
         <div className='countdown-container'>
-            <h1>Falta</h1>
+            <h1>FALTA</h1>
             <div className="countdown">
                 <div className="countdown-item">
                     <span>{String(timeRemaining.days).padStart(2, '0')}</span>
