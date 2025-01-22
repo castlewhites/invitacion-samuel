@@ -1,6 +1,7 @@
 import './landing.css';
 import Countdown from "../components/CountDown/index";
 import Fiesta from "../assets/fiesta.png";
+import Regalo from "../assets/regalo.png";
 
 
 
@@ -41,7 +42,23 @@ export default function Landing() {
                     <h1>FIESTA</h1>
                     <p>Granada Club Residencial</p>
                     <p>calle 64j #74b-19</p>
-                    <button>Ver mapa</button>
+                    <button onClick={() => window.open("https://maps.app.goo.gl/c3pMpXmM8MJESemQ9")}>Ver mapa</button>
+                </div>
+            </section>
+            <section className='fift-section'>
+                <div className='fift-section__content'>
+                    <img src={Regalo} alt="" />
+                    <h1>REGALOS</h1>
+                    <p>Si deseas regalarme algo más que tu hermosa presencia...</p>
+                    <button>Elegir</button>
+                </div>
+            </section>
+            <section className='six-section'>
+                <div className='six-section__content'>
+                    <img src={Regalo} alt="" />
+                    <h1>DESEOS Y DONES</h1>
+                    <p>Regalame  tus mejores deseos y bendiceme con un don</p>
+                    <textarea></textarea>
                 </div>
             </section>
         </div>
