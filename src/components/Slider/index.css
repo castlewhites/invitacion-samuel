@@ -1,0 +1,31 @@
+.slider-container{
+    width: 80%;
+    margin: 0 auto;    
+    position: relative;
+}
+
+.slick-slider {
+    height: 100%; /* Asegúrate de que el slider ocupe el 100% del contenedor */
+}
+.slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    height: 100%; /* Ajusta la altura del slide */
+}
+.slick-slide img {
+    width: 100% !important; /* Escala las imágenes para que ocupen el ancho del contenedor */
+    height: 200px !important; /* Escala las imágenes para que ocupen el alto del contenedor */
+    object-fit: cover; /* Mantén las proporciones y recorta el exceso si es necesario */
+}
+.slick-dots.slick-thumb {
+    bottom: 10px; /* Ajusta la posición de los dots */
+}
+.slick-dots.slick-thumb img {
+    width: 50px; /* Ajusta el tamaño de las imágenes de las miniaturas */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px; /* Bordes redondeados opcionales */
+    cursor: pointer;
+}

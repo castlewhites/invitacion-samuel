@@ -1,0 +1,35 @@
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;  
+    background-color: #D4CDA1;
+}
+
+.modal__content {
+    position: relative;
+    z-index: 3;  
+    background: #809671;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.close-button {
+    margin-top: 20px;
+}

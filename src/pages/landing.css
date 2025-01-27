@@ -107,7 +107,6 @@
 /* FOURTH SECTION */
 
 .fourth-section__content, .fift-section__content, .six-section__content{
-  z-index: 2;
   position: relative;
   color: #c8ae7e;
   display: flex;
@@ -118,7 +117,7 @@
   margin: 0 auto;
   width: 70px !important;
 }
-.fourth-section__content button, .fift-section__content button, .six-section__content button{
+.fourth-section__content button, .fift-section__button, .six-section__content button{
   background-color: #D4CDA1;
   border: none;
   padding: 7px;

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import './landing.css';
 import Countdown from "../components/CountDown/index";
+import GiftSection from '../components/Modal';
 import Fiesta from "../assets/fiesta.png";
-import Regalo from "../assets/regalo.png";
 import Vela from "../assets/vela.png";
 
 
@@ -72,11 +72,8 @@ export default function Landing() {
                 </div>
             </section>
             <section className='fift-section '>
-                <div className='fift-section__content fade-in'>
-                    <img src={Regalo} alt="" />
-                    <h1>REGALOS</h1>
-                    <p>Si deseas regalarme algo más que tu hermosa presencia...</p>
-                    <button>Elegir</button>
+                <div className='fift-section__content '>
+                    <GiftSection/>
                 </div>
             </section>
             <section className='six-section '>
