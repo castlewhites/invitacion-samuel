@@ -1,14 +1,19 @@
-
+import { useState } from "react";
 import Slider from "react-slick";
-import "./index.css"
+import "./index.css";
 
 // Importa directamente las imágenes
 import abstracto1 from "../../assets/regalos/1.png";
 import abstracto2 from "../../assets/regalos/2.png";
 
+function CustomPaging({ onButtonClick, giftName }: any) {
 
-function CustomPaging() {
-  const images = [abstracto1, abstracto2]; // Array con las imágenes
+  const images = [abstracto1, abstracto2];
+  const names = ["ALMOHADA MATERNA", "GIMNASIO PARA BEBÉ"];
+  // const [giftsSelections, setGiftsSelections] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [giftSelected, setGifSelected] = useState("");
+
 
   const settings = {
     customPaging: function (i: number) {
@@ -19,11 +24,21 @@ function CustomPaging() {
       );
     },
     dots: false,
-    dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    beforeChange: (newIndex: number) => {
+      setCurrentIndex(newIndex); // Actualiza el índice cuando se cambia el slide
+    },
+  };
+
+  const handleButtonClick = () => {
+    console.log(`Regalo escogido: ${names[currentIndex]}`);
+    onButtonClick(true)
+    giftName(names[currentIndex])
+    setGifSelected(names[currentIndex])
+
   };
 
   return (
@@ -35,10 +50,21 @@ function CustomPaging() {
           </div>
         ))}
       </Slider>
-      <button>Escoger</button>
+      {giftSelected ?
+        <>
+          <p>Haz seleccionado: {giftSelected}</p>
+          <div>
+            <button>Aceptar</button>
+            <button>Volver a elegir</button>
+          </div>
+        </> :
+        <>
+          <button className="select-button" onClick={handleButtonClick}>Escoger</button>
+        </>
+      }
+
     </div>
   );
 }
 
 export default CustomPaging;
-

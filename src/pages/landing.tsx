@@ -4,10 +4,15 @@ import Countdown from "../components/CountDown/index";
 import GiftSection from '../components/Modal';
 import Fiesta from "../assets/fiesta.png";
 import Vela from "../assets/vela.png";
+import { useLocation } from "react-router-dom";
 
 
 
 export default function Landing() {
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const familia = params.get("familia") || "Invitado";
+    const cupos = params.get("cupos") || "1";
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -38,6 +43,12 @@ export default function Landing() {
                 <div className='one-section__content fade-in'>
                     <h1>SAMUEL CASTIBLANCO CASTILLO</h1>
                     <span>08 DE MARZO DEL 2025</span>
+                    <div className='hour'>4:00 PM</div>
+                    <div className='one-section_content_family'>
+                        <p>FAMILIA: <span>{familia}</span></p>
+                        <p>CUPOS:  <span>{cupos}</span></p>
+                        <button>Confirmar Asistencia</button>
+                    </div>
                 </div>
             </section>
             <section className='two-section'>
@@ -72,8 +83,8 @@ export default function Landing() {
                 </div>
             </section>
             <section className='fift-section '>
-                <div className='fift-section__content '>
-                    <GiftSection/>
+                <div className='fift-section__content fade-in '>
+                    <GiftSection />
                 </div>
             </section>
             <section className='six-section '>

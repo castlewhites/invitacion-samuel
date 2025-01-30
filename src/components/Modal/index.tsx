@@ -8,11 +8,23 @@ import CustomPaging from "../Slider/index"
 
 const GiftSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [buttonClick, setButtonClick] = useState(false);
+    const [selectedGift, setSelectedGift] = useState("");
 
+    const handleButtonClick = (value: any) => {
+        setButtonClick(value); // Actualiza el estado en el padre
+        console.log("Estado de buttonClick en el padre:", value);
+    };
+    const handleGiftName = (giftName: string) => {
+        setSelectedGift(giftName);
+    };
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
+    console.log(selectedGift, buttonClick);
+    
+
 
 
     return (
@@ -28,11 +40,33 @@ const GiftSection = () => {
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal__content">
-                        <h2>¡Elige tu regalo!</h2>
-                        <div style={{width: "100%", height: "400px"}}>
-                            <CustomPaging />
-                        </div>
-                        <button className="close-button" onClick={toggleModal}>Cerrar</button>
+                        <button className="modal__close" onClick={toggleModal}>
+                            &times;
+                        </button>
+                   
+                            <>
+                                <h2>¡Elige tu regalo!</h2>
+                                <div className='modal__content_inputs'>
+                                    <div>
+                                        <label>Nombre:</label>
+                                        <input type="text" />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="">Parentesco:</label>
+                                        <input type="text" />
+                                    </div>
+                                </div>
+                                <div style={{ width: "100%", height: "300px" }}>
+                                    <CustomPaging
+                                        onButtonClick={handleButtonClick}
+                                        giftName={handleGiftName}
+                                    />
+                                </div>
+                            </> 
+                           
+                    
+
+
                     </div>
                 </div>
             )}

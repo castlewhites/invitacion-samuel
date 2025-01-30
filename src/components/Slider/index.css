@@ -1,5 +1,6 @@
 .slider-container{
     width: 80%;
+    height: 90%;
     margin: 0 auto;    
     position: relative;
 }
@@ -15,17 +16,17 @@
     height: 100%; /* Ajusta la altura del slide */
 }
 .slick-slide img {
-    width: 100% !important; /* Escala las imágenes para que ocupen el ancho del contenedor */
-    height: 200px !important; /* Escala las imágenes para que ocupen el alto del contenedor */
-    object-fit: cover; /* Mantén las proporciones y recorta el exceso si es necesario */
+    width: 100% !important; 
+    height: 200px !important; 
+    object-fit: cover; 
 }
-.slick-dots.slick-thumb {
-    bottom: 10px; /* Ajusta la posición de los dots */
+
+.select-button{
+
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: #0e360e;
+    background-color: #D4CDA1;
+    color: #0e360e;
 }
-.slick-dots.slick-thumb img {
-    width: 50px; /* Ajusta el tamaño de las imágenes de las miniaturas */
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px; /* Bordes redondeados opcionales */
-    cursor: pointer;
-}
+    
