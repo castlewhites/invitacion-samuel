@@ -46,16 +46,7 @@ const GiftSection = () => {
                    
                             <>
                                 <h2>¡Elige tu regalo!</h2>
-                                <div className='modal__content_inputs'>
-                                    <div>
-                                        <label>Nombre:</label>
-                                        <input type="text" />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="">Parentesco:</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
+                                
                                 <div style={{ width: "100%", height: "300px" }}>
                                     <CustomPaging
                                         onButtonClick={handleButtonClick}
@@ -63,9 +54,6 @@ const GiftSection = () => {
                                     />
                                 </div>
                             </> 
-                           
-                    
-
 
                     </div>
                 </div>

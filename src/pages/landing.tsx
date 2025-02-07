@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './landing.css';
 import Countdown from "../components/CountDown/index";
 import GiftSection from '../components/Modal';
@@ -13,6 +13,7 @@ export default function Landing() {
     const params = new URLSearchParams(location.search);
     const familia = params.get("familia") || "Invitado";
     const cupos = params.get("cupos") || "1";
+    const [mensaje, setMensaje] = useState("");
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -36,6 +37,28 @@ export default function Landing() {
         };
     }, []);
 
+    const confirmarAsistencia = async () => {
+        const url = `https://script.google.com/macros/s/AKfycbzhjNfhApfTt2mUTVsV3NqPCgw1nys8ArTOdARwifpk54dC3QY9Fn7bOYI8OQRrffgj/exec?tipo=asistencia&nombre=${familia}&cupos=${cupos}`;
+                
+        const respuesta = await fetch(url, {
+            method: "GET",
+        });
+
+        console.log(respuesta)
+    };
+    const enviarMensaje = async () => {
+        const url = `https://script.google.com/macros/s/AKfycbyHYGRwJLz64HFSZvtvu3il4tZixNRI5IShzvz-cW4LklemQwB0CEVrAptp9Q4-vveD/exec?tipo=deseos&nombre=${familia}&mensaje=${mensaje}`;
+        const respuesta = await fetch(url, { method: "GET" });
+        const resultado = await respuesta.json();
+
+        if (resultado.success) {
+            alert(`¡Gracias ${familia}, tu mensaje ha sido enviado!`);
+        } else {
+            throw new Error(resultado.error || "Error al enviar el mensaje.");
+        }
+
+    };
+
 
     return (
         <div className='main-container'>
@@ -45,9 +68,9 @@ export default function Landing() {
                     <span>08 DE MARZO DEL 2025</span>
                     <div className='hour'>4:00 PM</div>
                     <div className='one-section_content_family'>
-                        <p>FAMILIA: <span>{familia}</span></p>
+                        <p>{familia} </p>
                         <p>CUPOS:  <span>{cupos}</span></p>
-                        <button>Confirmar Asistencia</button>
+                        <button onClick={confirmarAsistencia} >Confirmar Asistencia</button>
                     </div>
                 </div>
             </section>
@@ -92,8 +115,12 @@ export default function Landing() {
                     <img src={Vela} alt="" />
                     <h1>DESEOS Y DONES</h1>
                     <p>Regalame  tus mejores deseos y bendiceme con un don</p>
-                    <textarea placeholder='Hola Samuel, soy tu tía {nombre} y te deseo...'></textarea>
-                    <button>Enviar</button>
+                    <textarea
+                        placeholder='Hola Samuel, soy tu tía {nombre} y te deseo...'
+                        value={mensaje}
+                        onChange={(e) => setMensaje(e.target.value)}
+                    ></textarea>
+                    <button onClick={enviarMensaje}>Enviar</button>
                 </div>
             </section>
             <footer className='footer'>
