@@ -40,6 +40,7 @@ const invitados = [
     { id: 37, nombre: "SANTIAGO CASTILLO", cupos: 1 },
     { id: 38, nombre: "PAOLA HERNANDEZ", cupos: 1 },
     { id: 39, nombre: "CARLOS CASTILLO", cupos: 1 },
+    { id: 30, nombre: "LUIS Y FAMILIA", cupos: 2 },
 ];
 
 const generarLink = (invitado: any) => {
