@@ -9,13 +9,20 @@ from typing import List
 
 app = FastAPI(title="Invitación Digital Babyshower")
 
+# Permitir solicitudes desde GitHub Pages
+origins = [
+    "https://castlewhites.github.io",
+    "http://localhost:3000",  # Para pruebas locales (opcional)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Permitir solicitudes desde React
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],  # Permitir todos los métodos (GET, POST, PUT, DELETE, etc.)
-    allow_headers=["*"],  # Permitir todos los headers
+    allow_methods=["*"],  # Permitir todos los métodos (GET, POST, etc.)
+    allow_headers=["*"],  # Permitir todos los encabezados
 )
+
 
 
 
