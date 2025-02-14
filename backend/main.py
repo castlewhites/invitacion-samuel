@@ -5,9 +5,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
 from typing import List
+import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+
+
 
 
 app = FastAPI(title="Invitación Digital Babyshower")
+
+
 
 # Permitir solicitudes desde GitHub Pages
 origins = [
@@ -31,6 +37,26 @@ SQLALCHEMY_DATABASE_URL = "postgresql://sebastian:CCnLLxCHb0hs1NsFyqgoFlB66xFt9e
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
+
+def keep_alive():
+    """Función que hace una solicitud a la propia API para evitar que se duerma."""
+    try:
+        response = requests.get("https://invitacion-samuel.onrender.com")
+        print(f"KeepAlive: {response.status_code}")
+    except Exception as e:
+        print(f"Error en KeepAlive: {e}")
+
+# Configurar el scheduler
+scheduler = BackgroundScheduler()
+scheduler.add_job(keep_alive, "interval", minutes=10)  # Llamar cada 10 min
+scheduler.start()
+
+@app.get("/")
+def read_root():
+    return {"message": "API activa"}
+
+
 
 # --- Modelos de datos (Tablas) ---
 
