@@ -49,7 +49,7 @@ def keep_alive():
 
 # Configurar el scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(keep_alive, "interval", minutes=10)  # Llamar cada 10 min
+scheduler.add_job(keep_alive, "interval", minutes=14)  # Llamar cada 10 min
 scheduler.start()
 
 @app.get("/")
