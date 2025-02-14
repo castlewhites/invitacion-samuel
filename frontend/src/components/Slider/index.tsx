@@ -28,7 +28,7 @@ function CustomPaging({ onButtonClick, giftName }: CustomPagingProps) {
   useEffect(() => {
     const consultarRegalos = async () => {
       try {
-        const response = await fetch("http://localhost:8000/regalos/list", {
+        const response = await fetch("https://invitacion-samuel.onrender.com/regalos/list", {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -46,7 +46,7 @@ function CustomPaging({ onButtonClick, giftName }: CustomPagingProps) {
     };
     const consultarRegalosElegidos = async () => {
       try {
-        const response = await fetch("http://localhost:8000/regalos/elegidos", {
+        const response = await fetch("https://invitacion-samuel.onrender.com/regalos/elegidos", {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -120,7 +120,7 @@ function CustomPaging({ onButtonClick, giftName }: CustomPagingProps) {
 
   const enviarRegalos = async () => {
     try {
-      const response = await fetch('http://localhost:8000/regalo', {
+      const response = await fetch('https://invitacion-samuel.onrender.com/regalo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

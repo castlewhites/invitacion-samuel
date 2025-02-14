@@ -41,7 +41,7 @@ export default function Landing() {
 
     const confirmarAsistencia = async () => {
         try {
-            const response = await fetch('http://localhost:8000/asistencia', {
+            const response = await fetch('https://invitacion-samuel.onrender.com/asistencia', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -63,7 +63,7 @@ export default function Landing() {
             return; // No envía si el mensaje está vacío o solo contiene espacios
         }
         try {
-            const response = await fetch('http://localhost:8000/deseos', {
+            const response = await fetch('https://invitacion-samuel.onrender.com/deseos', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
