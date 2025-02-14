@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "./index.css";
-import { useLocation } from "react-router-dom";
+
 
 interface Gift {
   id: number;
@@ -21,8 +21,8 @@ function CustomPaging({ onButtonClick, giftName }: CustomPagingProps) {
   const [giftsFromDB, setGiftsFromDB] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedGifts, setSelectedGifts] = useState<Gift[]>([]);
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
+
+  const params = new URLSearchParams(window.location.search);
   const familia = params.get("familia") || "Invitado";
 
   useEffect(() => {
