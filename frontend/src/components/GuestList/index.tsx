@@ -43,7 +43,7 @@ const invitados = [
 ];
 
 const generarLink = (invitado: any) => {
-  const urlBase = "http://localhost:5173/invitacion-samuel"; // Ruta de la invitación
+  const urlBase = "https://castlewhites.github.io/invitacion-samuel"; // Ruta de la invitación
   return `${urlBase}?familia=${encodeURIComponent(invitado.nombre)}&cupos=${invitado.cupos}`;
 };
 
