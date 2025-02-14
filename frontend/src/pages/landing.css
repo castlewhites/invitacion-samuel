@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+
+.main-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.main-container h1{
+  font-size: 1.5rem !important;
+}
+.button:hover{
+  transform: scale(1.1); 
+
+}
+.button:active {
+  transform: scale(0.95); 
+}
+
+
+/* ONE SECTION */
+
+
+.one-section_content_family{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+  text-align: center;
+}
+.one-section_content_family p{
+  color: #383926 ;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+}
+.one-section_content_family span{
+  color: rgba(255, 255, 255, 0.789);
+  font-size: 0.9rem !important;
+}
+.one-section_content_family button{
+  width: 50%;
+  margin-top: 10px !important;
+  margin: 0 auto;
+  font-size: 0.7rem;
+  padding: 5px;
+  background-color: #D4CDA1;
+  border: none;
+  border-radius: 20px;
+  color: #0e360e;
+}
+
+.one-section, .two-section, .fourth-section, .fift-section, .six-section{
+  width: 100%;
+  height: 40%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.one-section{
+  background: linear-gradient(#809671, #c8ae7e 130%);
+  height: 45%;
+}
+.one-section::before, .two-section::before, .three-section::before, .fourth-section::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/simba.png') no-repeat center center/cover;
+  opacity: 0.3; 
+  z-index: 1;
+}
+.one-section__content{
+  width: 100%;
+  max-width: 250px;
+  position: relative; 
+  z-index: 2;
+  color: #0e360e;
+  padding: auto;
+}
+.one-section__content h1{
+  font-size: 2rem !important;
+  margin-bottom: 35px;
+}
+.one-section__content span, .hour{
+  font-size: 0.7rem;
+  margin: 2px;
+}
+
+ 
+/* TWO SECTION */
+
+.two-section, .fourth-section, .fift-section{
+  width: 100%;
+  height: 25%;
+  background-color: #4E4F3D; 
+}
+.two-section::before, .fourth-section::before{
+  background: url('../assets/selva.png') no-repeat center center/cover;
+  opacity: 1;
+}
+
+
+/* THREE SECTION */
+
+.three-section{
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  background-color: #809671;
+  padding: auto;
+
+  
+}
+.three-section::before{
+  background: url('../assets/leon2.png') no-repeat center center/cover;
+}
+
+.three-section__content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative; 
+  z-index: 2;
+  color: #0e360e;
+}
+
+.three-section__names{
+  color: #383926;
+  font-weight: bold;
+  display: flex;
+  font-size: 1rem;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* FOURTH SECTION */
+
+.fourth-section__content, .fift-section__content, .six-section__content{
+  position: relative;
+  color: #c8ae7e;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: auto;
+}
+.fourth-section__content{
+  z-index: 2;
+}
+.fourth-section__content img, .fift-section__content img{
+  margin: 0 auto;
+  width: 70px !important;
+}
+.fourth-section__content button, .fift-section__button, .six-section__content button{
+  background-color: #D4CDA1;
+  border: none;
+  padding: 7px;
+  width: 60%;
+  color: #0e360e;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.fourth-section__content button{
+  background-color: #809671;
+}
+.fourth-section__content h1, .six-section__content h1 {
+  color: rgba(255, 255, 255, 0.789);
+}
+
+
+/* FIFT CONTENT */
+
+.fift-section{
+  background-color: #809671;
+}
+
+.fift-section__content{
+  max-width: 200px;
+  color: #0e360e;
+}
+
+.fift-section__content img{
+  width: 35px !important;
+}
+
+/* SIX SECTION */
+
+.six-section{
+  background-color: #4E4F3D ;
+  height: 35%;
+}
+.six-section__content{
+  color: #e5d2b8;
+  width: 80%;
+}
+
+.six-section__content img{
+  width: 45px;
+  margin: 0 auto;
+}
+.six-section__content textarea{
+  min-height: 50px;
+  border-radius: 20px;
+  background-color: #D4CDA1;
+  padding: 10px 20px;
+  color: #383926;
+  font-weight: 300;
+  font-size: 0.8rem;
+  resize: none;
+}
+.six-section__content button{
+  background-color: #809671;
+  width: 120px;
+}
+
+
+
+
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #0e360edd; 
+  text-align: center;       
+  padding: 10px 0;          
+  font-size: 14px;          
+  color: #809671;              
+  border-top: 1px solid #38392689; 
+  
+}
+
+/* Estilo inicial: oculto */
+.fade-in {
+  opacity: 0;
+  transition: opacity 3s ease-out, transform 1s ease-out;
+}
+
+/* Estilo cuando son visibles */
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* GENERALES */
+
+.two-section, .three-section, .fourth-section, .fift-section, .six-section{
+  font-size: 0.8rem;
+}
+
+
+.success-message{
+  color: #0e360e !important;
+  background-color:  #ffffffbe;
+  padding: 4px;
+  font-size: 0.7rem !important;
+  border-radius: 10px;
+}
