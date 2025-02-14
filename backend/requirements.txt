@@ -3,3 +3,4 @@ fastapi
 gunicorn
 sqlalchemy
 asyncpg
+psycopg2-binary
