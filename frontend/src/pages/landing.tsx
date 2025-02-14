@@ -4,13 +4,12 @@ import Countdown from "../components/CountDown/index";
 import GiftSection from '../components/Modal';
 import Fiesta from "../assets/fiesta.png";
 import Vela from "../assets/vela.png";
-import { useLocation } from "react-router-dom";
+
 
 
 
 export default function Landing() {
-    const location = useLocation();
-    const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams(window.location.search);
     const familia = params.get("familia") || "Invitado";
     const cupos = params.get("cupos") || "1";
     const [mensaje, setMensaje] = useState("");
