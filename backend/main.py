@@ -20,7 +20,7 @@ app.add_middleware(
 
 
 # --- Configuración de la base de datos SQLite ---
-SQLALCHEMY_DATABASE_URL = "postgresql://sebastian:samuel@localhost:5432/invitacion_samuel_db"
+SQLALCHEMY_DATABASE_URL = "postgresql://sebastian:CCnLLxCHb0hs1NsFyqgoFlB66xFt9eXT@dpg-cunc1ia3esus73cfbqf0-a.oregon-postgres.render.com/invitacion_samuel"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
