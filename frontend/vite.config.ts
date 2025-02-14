@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "https://castlewhites.github.io/invitacion-samuel",
+  base: "/invitacion-samuel/",
   server: {
     proxy: {
       '/asistencia': {
