@@ -14,6 +14,8 @@ export default function Landing() {
     const familia = params.get("familia") || "Invitado";
     const cupos = params.get("cupos") || "1";
     const [mensaje, setMensaje] = useState("");
+    const [asistenciaConfirmada, setAsistenciaConfirmada] = useState(false);
+    const [mensajeEnviado, setMensajeEnviado] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -38,24 +40,46 @@ export default function Landing() {
     }, []);
 
     const confirmarAsistencia = async () => {
-        const url = `https://script.google.com/macros/s/AKfycbzhjNfhApfTt2mUTVsV3NqPCgw1nys8ArTOdARwifpk54dC3QY9Fn7bOYI8OQRrffgj/exec?tipo=asistencia&nombre=${familia}&cupos=${cupos}`;
-                
-        const respuesta = await fetch(url, {
-            method: "GET",
-        });
-
-        console.log(respuesta)
+        try {
+            const response = await fetch('http://localhost:8000/asistencia', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                nombre: familia,
+                cupos: Number(cupos)
+              })
+            });
+            if (response.ok) {
+                setAsistenciaConfirmada(true);
+                setTimeout(() => setAsistenciaConfirmada(false), 2000);
+            }
+            
+          } catch (error) {
+            console.error('Error enviando asistencia:', error);
+          }
     };
     const enviarMensaje = async () => {
-        const url = `https://script.google.com/macros/s/AKfycbyHYGRwJLz64HFSZvtvu3il4tZixNRI5IShzvz-cW4LklemQwB0CEVrAptp9Q4-vveD/exec?tipo=deseos&nombre=${familia}&mensaje=${mensaje}`;
-        const respuesta = await fetch(url, { method: "GET" });
-        const resultado = await respuesta.json();
-
-        if (resultado.success) {
-            alert(`¡Gracias ${familia}, tu mensaje ha sido enviado!`);
-        } else {
-            throw new Error(resultado.error || "Error al enviar el mensaje.");
+        if (!mensaje.trim()) {
+            return; // No envía si el mensaje está vacío o solo contiene espacios
         }
+        try {
+            const response = await fetch('http://localhost:8000/deseos', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                nombre: familia,
+                mensaje: mensaje
+              })
+            });
+            if (response.ok) {
+                setMensajeEnviado(true);
+                setMensaje("");
+                setTimeout(() => setMensajeEnviado(false), 2000);
+            }
+            
+          } catch (error) {
+            console.error('Error enviando asistencia:', error);
+          }
 
     };
 
@@ -66,11 +90,14 @@ export default function Landing() {
                 <div className='one-section__content fade-in'>
                     <h1>SAMUEL CASTIBLANCO CASTILLO</h1>
                     <span>08 DE MARZO DEL 2025</span>
-                    <div className='hour'>4:00 PM</div>
+                    <div className='hour'>3:00 PM</div>
                     <div className='one-section_content_family'>
                         <p>{familia} </p>
                         <p>CUPOS:  <span>{cupos}</span></p>
-                        <button onClick={confirmarAsistencia} >Confirmar Asistencia</button>
+                        <div style={{height: "10px"} }>
+                            {asistenciaConfirmada && <p className="success-message">¡Asistencia confirmada con éxito!</p>}
+                        </div>
+                        <button className='button' onClick={confirmarAsistencia} >Confirmar Asistencia</button>
                     </div>
                 </div>
             </section>
@@ -99,10 +126,10 @@ export default function Landing() {
                     <img src={Fiesta} alt="" />
                     <h1>FIESTA</h1>
                     <div>
-                        <p>Granada Club Residencial</p>
-                        <p>calle 64j #74b-19</p>
+                        <p>Granada Club Residencial Int 5</p>
+                        <p>Salón comunal piso 1</p>
                     </div>
-                    <button onClick={() => window.open("https://maps.app.goo.gl/c3pMpXmM8MJESemQ9")}>Ver mapa</button>
+                    <button className='button' onClick={() => window.open("https://maps.app.goo.gl/c3pMpXmM8MJESemQ9")}>Ver mapa</button>
                 </div>
             </section>
             <section className='fift-section '>
@@ -120,7 +147,8 @@ export default function Landing() {
                         value={mensaje}
                         onChange={(e) => setMensaje(e.target.value)}
                     ></textarea>
-                    <button onClick={enviarMensaje}>Enviar</button>
+                    <button className='button' onClick={enviarMensaje}>Enviar</button>
+                    {mensajeEnviado && <p className="success-message">¡Mensaje enviado con éxito!</p>}
                 </div>
             </section>
             <footer className='footer'>

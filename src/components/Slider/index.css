@@ -22,11 +22,34 @@
 }
 
 .select-button{
-
+    margin-top: 20px;
     padding: 5px 10px;
     border-radius: 20px;
     border: #0e360e;
     background-color: #D4CDA1;
     color: #0e360e;
 }
-    
+.selected-gifts{
+    margin: 0 auto;
+
+}
+.selected-gifts ul {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Columnas automáticas */
+  gap: 5px; /* Espacio entre elementos */
+  text-align: center; /* Opcional: Alinear texto */
+  padding: 0;
+}
+
+.selected-gifts li {
+  text-transform: capitalize;
+  font-size: 0.6rem;
+  color: black;
+  
+  margin: 3px;
+  list-style: none; /* Eliminar viñetas */
+  background-color: #f3f3f3; /* Fondo opcional */
+  padding: 5px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados opcionales */
+}

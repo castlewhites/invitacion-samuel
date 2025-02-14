@@ -11,11 +11,11 @@
 .main-container h1{
   font-size: 1.5rem !important;
 }
-button:hover{
+.button:hover{
   transform: scale(1.1); 
 
 }
-button:active {
+.button:active {
   transform: scale(0.95); 
 }
 
@@ -258,4 +258,13 @@ button:active {
 
 .two-section, .three-section, .fourth-section, .fift-section, .six-section{
   font-size: 0.8rem;
+}
+
+
+.success-message{
+  color: #0e360e !important;
+  background-color:  #ffffffbe;
+  padding: 4px;
+  font-size: 0.7rem !important;
+  border-radius: 10px;
 }
